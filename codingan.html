@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>
+            codingan arduino
+        </title>
+        <style>
+            body
+            {
+                background-color: bisque;
+                border: 4px solid black;
+                
+            }
+            body img {
+                max-width: 500px;
+                border: 10px solid black;
+            }
+            .kode h2 {
+                border: 3px solid black;
+            }
+            .kode p{
+                border: 3px solid black;
+            }
+
+            
+        </style>
+    </head>
+
+    <body>
+        <h1 align="center"> KODE PROGRAM </h1> <br>
+        <h3 align="center"> TRASH LOAD SENSORS </h3> <br>
+        <img src="rankaian.png"> 
+
+        <div class="kode">
+            <h2 align="center"> Kode Program</h2> 
+            <p align="center"> #include <LiquidCrystal.h>
+
+                const int trigPin = 3;
+                const int echoPin = 2;
+                const int buzzer = 4;
+                const int potPin = A0;
+                LiquidCrystal lcd (8,9,10,11,12,13);
+                
+                void setup() {
+                    pinMode(trigPin, OUTPUT);
+                    pinMode(echoPin, INPUT);
+                    pinMode(buzzer, OUTPUT);
+                    lcd.begin (16,2);
+                    Serial.begin(9600);
+                }
+                
+                void loop() {
+                    long duration;
+                    float distance;
+                
+                       int potValue = analogRead(potPin);  
+                    int threshold = map(potValue, 0, 1023, 5, 20); 
+                
+                    digitalWrite(trigPin, LOW);
+                    delayMicroseconds(2);
+                    digitalWrite(trigPin, HIGH);
+                    delayMicroseconds(10);
+                    digitalWrite(trigPin, LOW);
+                
+                        duration = pulseIn(echoPin, HIGH);
+                    distance = duration * 0.034 / 2; 
+                
+                       Serial.print("Jarak: ");
+                    Serial.print(distance);
+                    Serial.println(" cm");
+                
+                    lcd.clear();
+                
+                        if (distance <= 3) {
+                        lcd.setCursor(0, 0);
+                        lcd.print("100%! Sampah");
+                        lcd.setCursor(0, 1);
+                        lcd.print("sudah penuh!");
+                        digitalWrite(buzzer, HIGH);
+                    } 
+                    else if (distance <= 4) {
+                        lcd.setCursor(0, 0);
+                        lcd.print("90% muatan");
+                        digitalWrite(buzzer, LOW);
+                    } 
+                    else if (distance <= 7) {
+                        lcd.setCursor(0, 0);
+                        lcd.print("70% muatan");
+                        digitalWrite(buzzer, LOW);
+                    } 
+                    else if (distance <= threshold) {         
+                          lcd.setCursor(0, 0);
+                        lcd.print("50% muatan");
+                        digitalWrite(buzzer, LOW);
+                    } 
+                    else if (distance <= threshold + 10) {
+                        lcd.setCursor(0, 0);
+                        lcd.print("30% muatan");
+                        digitalWrite(buzzer, LOW);
+                    } 
+                    else if (distance <= threshold + 15) {
+                        lcd.setCursor(0, 0);
+                        lcd.print("10% muatan");
+                        digitalWrite(buzzer, LOW);
+                    } 
+                    else {
+                        lcd.setCursor(0, 0);
+                        lcd.print("0% muatan");
+                        digitalWrite(buzzer, LOW);
+                    }
+                
+                    delay(500);
+                }
+                
+                
+                </p>
+        </div>
+    </body>
+</html>

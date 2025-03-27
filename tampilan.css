@@ -1,0 +1,136 @@
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body
+{
+    background-color:white;
+}
+
+.badan-tama
+{
+    max-width: 1080px;
+    margin: 20px auto;
+    background-color:#C14600;
+    padding: 15px;
+    overflow: hidden;
+}
+header
+{
+    background-color:#FF9D23;
+    color:white;
+    align: center;
+    padding: 20px;
+
+}
+.header h2
+{
+    margin-bottom: 7px;
+    font-size: 35px;
+}
+.navigasi ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#FF9D23 ;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navigasi li
+{
+    float: left;
+
+}
+.navigasi li a
+{
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+.nav li a :hover
+{background-color: red;
+    transition-duration: 2s;
+
+}
+.banner 
+{ 
+    margin-bottom: 15px;
+}
+.banner img
+{
+    display: block;
+    width: 100%;
+    height: 330px;
+}
+.kotak 
+{
+    border: 4px solid rgba(220, 220, 220, 0);
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.kotak h3{
+    background-color: #C14600;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 13px;
+}
+.kotak img
+{
+    display: block;
+width: 100%;
+margin-bottom: 10px;
+}
+
+
+.kiri 
+{
+    width: 250px;
+    margin-right: 10px;
+    float: left;
+    border: 2px solid black;
+}
+.tengah
+{
+    width: 530px;
+    margin-right: 10px;
+    float: left;
+    border: 2px solid black;
+}
+.tombol 
+{
+    display: block;
+    text-decoration:none ;
+    padding: 10px;
+    width: 120px;
+    color: white;
+    border-radius: 1px;
+    text-align: center;
+}
+.tombol:hover
+{
+    background-color: black;
+    transition: 2s;
+
+}
+.tombol-cek
+{
+    background-color: green;
+
+}
+.kanan
+{
+    width:250px ;
+    float: left;
+    border: 5px solid black;
+}
+.kanan,.kiri,.tengah{margin-bottom: 15px;
+}
